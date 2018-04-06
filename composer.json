@@ -1,0 +1,18 @@
+{
+    "name": "Billy/Share All",
+    "description": "Share All Api",
+    "type": "project",
+    "require": {
+        "slim/slim": "3.0",
+        "firebase/php-jwt": "^5.0"
+    },
+    "autoload": {
+        "psr-4": {
+                    "App\\": "app/"
+                 }
+    },
+    "scripts": {
+        "start": "php -S localhost:8080 -t public index.php",
+        "subscribe": "cd app/mqtt &&  php subscribe.php"
+    }
+}
