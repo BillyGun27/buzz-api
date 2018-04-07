@@ -3,7 +3,7 @@ use Slim\Http\Request;
 use Slim\Http\Response;
 
 
-use App\Controller\UserController;
+//use App\Controller\UserController;
 
 //DBConnect::Connfun();
 //HomeController::go();
@@ -35,9 +35,9 @@ $app->group('/auth', function () {
 
 $app->group('/buzz', function () {
     $this-> get('/', function(){ return "Hello"; });
-    $this-> get('/view/{id}/{who}',  \DonasiController::class . ':view');
-    $this-> get('/insert/{kotak}/{barang}/{jumlah}',  \DonasiController::class . ':insert');
-    $this-> get('/capacity/{kotak}/{percent}',  \DonasiController::class . ':capacity');
+    $this-> get('/view/{id}/{who}',  \BuzzController::class . ':view');
+    $this-> get('/insert/{kotak}/{barang}/{jumlah}',  \BuzzController::class . ':insert');
+    $this-> get('/capacity/{kotak}/{percent}',  \BuzzController::class . ':capacity');
 });
 
 
