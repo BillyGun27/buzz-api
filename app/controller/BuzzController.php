@@ -30,20 +30,24 @@ class BuzzController extends BaseController
     //count follower
 
     public function follow($request, $response, $args){
-        $stmt = $this->db->query("INSERT INTO tb_donasi (tb_kotak_id_kotak,tb_barang_id_barang,jumlah) VALUES (?,?,?) ")
+        /*$stmt = $this->db->query("INSERT INTO tb_donasi (tb_kotak_id_kotak,tb_barang_id_barang,jumlah) VALUES (?,?,?) ")
          ->param( [ $args['kotak'], $args['barang'], $args['jumlah'] ] );
-        
+        */
         //SELECT * , COUNT(qna.follow.user) AS total FROM qna.follow GROUP BY followed; 
         //SELECT  COUNT(qna.follow.user) AS total FROM qna.follow WHERE followed=? GROUP BY followed ; 
 
         //UPDATE user SET follower = ( SELECT  COUNT(qna.follow.user) AS total FROM qna.follow WHERE followed=? GROUP BY followed ) WHERE id = ? 
-         return $response->withJson($stmt->send()) ;//$args['kotak'].$args['barang'].$args['jumlah'];
+         
+        //return $response->withJson($stmt->send()) ;//$args['kotak'].$args['barang'].$args['jumlah'];
+        $stmt = $this->db->query("SELECT * FROM buzz.follow JOIN buzz.user ON buzz.user.id = buzz.follow.following WHERE buzz.follow.user = ?; ")
+        ->param( [ $args['id'] ]);
+
+        return $response->withJson($stmt->view());
+
     }
 
-    public function capacity($request, $response, $args){
-        $stmt = $this->db->query("UPDATE tb_kotak SET kapasitas = (?) WHERE id_kotak = ? ")
-         ->param( [ $args['percent'], $args['kotak'] ] );
-        return  $response->withJson($stmt->send()) ;//$args['percent']. $args['kotak'];//
-    }
+ 
+
+  
     
 }
