@@ -17,14 +17,14 @@ class BuzzController extends BaseController
 
 
     public function view($request, $response, $args) {
-        if($args['who']="all"){
+       // if($args['who']="all"){
             $stmt = $this->db->query("SELECT * FROM user");
             //SELECT * ,IF(qna.follow.id = 2 , "true" , "false" ) AS checkmark FROM qna.user LEFT JOIN (SELECT * FROM qna.follow WHERE  qna.follow.user = 2 ) AS follow ON qna.user.id =  qna.follow.followed  WHERE qna.user.id != 2 ;
-        }else{
+     //   }else{
             //SELECT * ,IF(qna.follow.id = 2 , "true" , "false" ) AS checkmark FROM qna.user JOIN (SELECT * FROM qna.follow WHERE  qna.follow.user = 2 ) AS follow ON qna.user.id =  qna.follow.followed  WHERE qna.user.id != 2 ;
-        }
+      //  }
            
-            return $response->withJson($stmt->view());
+        return $response->withJson($stmt->view());
     }
 
     //count follower
