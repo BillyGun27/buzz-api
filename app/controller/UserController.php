@@ -1,6 +1,8 @@
 <?php
 namespace App\Controller;
 
+use Slim\Http\UploadedFile;
+
 use App\Controller\BaseController;
 use App\Database\DBConnect;
 use \Firebase\JWT\JWT;
@@ -53,11 +55,38 @@ public function login($request, $response, $args) {
 
     }
 
+public function profile($request, $response, $args){
+    
+    $directory = __DIR__ . '/../../public/uploads';
+    $uploadedFiles = $request->getUploadedFiles();
+
+    // handle single input with single file upload
+    $uploadedFile = $uploadedFiles['profile'];
+    if ($uploadedFile->getError() === UPLOAD_ERR_OK) {
+        $filename = $this->moveUploadedFile($directory, $uploadedFile);
+        return $response->write('success');
+    }else{
+        return $response->write('error try again');
+    }
+
+}
+
+public function moveUploadedFile($directory, UploadedFile $uploadedFile)
+{
+    $extension = pathinfo($uploadedFile->getClientFilename(), PATHINFO_EXTENSION);
+    $basename = "coba";//bin2hex(random_bytes(8)); // see http://php.net/manual/en/function.random-bytes.php
+    $filename = sprintf('%s.%0.8s', $basename, $extension);
+
+    $uploadedFile->moveTo($directory . DIRECTORY_SEPARATOR . $filename);
+
+    return $filename;
+}
+
 public function update($request, $response, $args){
     $data = $request->getParsedBody();
     $id = $data["id"];
     $email = $data["email"];
-    $name=$data["name"];
+    $name = $data["name"];
     $job = $data["job"];
     $youtube = $data["youtube"];
     $instagram = $data["instagram"];
@@ -71,6 +100,8 @@ public function update($request, $response, $args){
  
     return $response->withJson( $stmt->send() );
 }
+
+
 
 public function register($request, $response, $args) {
         $data = $request->getParsedBody();

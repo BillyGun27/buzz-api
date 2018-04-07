@@ -1,7 +1,7 @@
 <?php
 use Slim\Http\Request;
-
 use Slim\Http\Response;
+
 
 use App\Controller\UserController;
 
@@ -30,12 +30,12 @@ $app->group('/auth', function () {
     $this-> post('/register',  \UserController::class . ':register');
     $this-> post('/logout',  \UserController::class . ':logout');
     $this-> post('/update',  \UserController::class . ':update');
+    $this-> post('/profile',  \UserController::class . ':profile');
 });
 
 $app->group('/buzz', function () {
     $this-> get('/', function(){ return "Hello"; });
-    $this-> get('/viewdata',  \DonasiController::class . ':viewdata');
-    $this-> get('/viewdonasi',  \DonasiController::class . ':viewdonasi');
+    $this-> get('/view/{id}/{who}',  \DonasiController::class . ':view');
     $this-> get('/insert/{kotak}/{barang}/{jumlah}',  \DonasiController::class . ':insert');
     $this-> get('/capacity/{kotak}/{percent}',  \DonasiController::class . ':capacity');
 });
