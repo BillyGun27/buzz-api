@@ -57,7 +57,7 @@ public function login($request, $response, $args) {
 
 public function profile($request, $response, $args){
     
-    $directory = __DIR__ . '/../../public/uploads';
+    $directory = __DIR__ . '/../../profile/uploads';
     $uploadedFiles = $request->getUploadedFiles();
 
     // handle single input with single file upload
