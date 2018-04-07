@@ -64,9 +64,9 @@ public function profile($request, $response, $args){
     $uploadedFile = $uploadedFiles['profile'];
     if ($uploadedFile->getError() === UPLOAD_ERR_OK) {
         $filename = $this->moveUploadedFile($directory, $uploadedFile);
-        return $response->write('success');
+        return "success";//$response->write('success');
     }else{
-        return $response->write('error try again');
+        return "error";//$response->write('error try again');
     }
 
 }
