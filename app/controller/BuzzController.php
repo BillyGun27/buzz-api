@@ -46,7 +46,20 @@ class BuzzController extends BaseController
 
     }
 
- 
+    public function followuser($request, $response, $args) {
+        //$data = $request->getParsedBody();
+        $userid =  $args['userid'];//$data["userid"];
+        $followid =  $args['followid'];//$data["followid"];
+
+        $stmt = $this->db->query("INSERT INTO follow (user, following ) VALUES (?,?)")->param([ $userid, $followid ]);
+     
+        if( $stmt->send()){
+            return $response->withJson("succes");
+        }else{
+            return $response->withJson("User Already Exist");
+        }
+        
+    }
 
   
     
