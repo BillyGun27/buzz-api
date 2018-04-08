@@ -31,6 +31,7 @@ $app->group('/auth', function () {
     $this-> post('/logout',  \UserController::class . ':logout');
     $this-> post('/update',  \UserController::class . ':update');
     $this-> post('/profile',  \UserController::class . ':profile');
+    $this-> post('/followuser',  \UserController::class . ':followuser');
 });
 
 $app->group('/buzz', function () {

@@ -94,7 +94,8 @@ public function update($request, $response, $args){
     $twitter = $data["twitter"];
     $phone = $data["phone"];
     $bio = $data["bio"];
-    
+    $follower = $data["follower"];
+    $price = $data["price"];
 
     $stmt = $this->db->query("UPDATE user SET job = ?,instagram= ?  WHERE id = ? ")->param([$job,$instagram ,$id ]);
  
@@ -107,7 +108,8 @@ public function register($request, $response, $args) {
         $data = $request->getParsedBody();
         $email = $data["email"];
         $password = password_hash($data["password"], PASSWORD_DEFAULT);
-        $stmt = $this->db->query("INSERT INTO user (email, password ) VALUES (?,?)")->param([ $email ,$password ]);
+        $status = $data["status"];
+        $stmt = $this->db->query("INSERT INTO user (email, password, status ) VALUES (?,?,?)")->param([ $email ,$password,$status ]);
      
         if( $stmt->send()){
             return $response->withJson("succes");
@@ -116,6 +118,20 @@ public function register($request, $response, $args) {
         }
         
     }
-    
+
+public function followuser($request, $response, $args) {
+        $data = $request->getParsedBody();
+        $userid = $data["userid"];
+        $followid = $data["followid"];
+
+        $stmt = $this->db->query("INSERT INTO follow (user, following ) VALUES (?,?)")->param([ $userid, $followid ]);
+     
+        if( $stmt->send()){
+            return $response->withJson("succes");
+        }else{
+            return $response->withJson("User Already Exist");
+        }
+        
+    }
     
 }
