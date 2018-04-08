@@ -55,9 +55,9 @@ class BuzzController extends BaseController
         ->param([ $userid, $followid ]);
      
         if( $stmt->send()){
-            return $response->withJson("succes");
+            return $response->withJson("Followed");
         }else{
-            return $response->withJson("User Already Exist");
+            return $response->withJson("Connection Error");
         }
         
     }
