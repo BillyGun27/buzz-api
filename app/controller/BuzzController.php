@@ -51,7 +51,8 @@ class BuzzController extends BaseController
         $userid =  $args['userid'];//$data["userid"];
         $followid =  $args['followid'];//$data["followid"];
 
-        $stmt = $this->db->query("INSERT INTO follow (user, following ) VALUES (?,?)")->param([ $userid, $followid ]);
+        $stmt = $this->db->query("INSERT INTO follow (user, following ) VALUES (?,?)")
+        ->param([ $userid, $followid ]);
      
         if( $stmt->send()){
             return $response->withJson("succes");
@@ -59,6 +60,17 @@ class BuzzController extends BaseController
             return $response->withJson("User Already Exist");
         }
         
+    }
+
+    public function checkfollow($request, $response, $args){
+        $userid =  $args['userid'];//$data["userid"];
+        $followid =  $args['followid'];//$data["followid"];
+
+        $stmt = $this->db->query("SELECT * FROM follow WHERE user = ? AND following = ? ")
+        ->param( [ $userid, $followid ]);
+
+        return $response->withJson($stmt->view());
+
     }
 
   
