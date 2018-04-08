@@ -69,7 +69,12 @@ class BuzzController extends BaseController
         $stmt = $this->db->query("SELECT * FROM follow WHERE user = ? AND following = ? ")
         ->param( [ $userid, $followid ]);
 
-        return $response->withJson($stmt->view());
+        if( empty( $stmt->view() ) ){
+            $result = false;
+        }else{
+            $result = true;
+        }
+        return $response->withJson($result);
 
     }
 
