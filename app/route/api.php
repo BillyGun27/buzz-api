@@ -37,8 +37,8 @@ $app->group('/buzz', function () {
     $this-> get('/', function(){ return "Hello"; });
     $this-> get('/view',  \BuzzController::class . ':view');
     $this-> get('/follow/{id}',  \BuzzController::class . ':follow');
-    $this-> post('/followuser/{userid}/{followid}',  \BuzzController::class . ':followuser');
-    $this-> post('/checkfollow/{userid}/{followid}',  \BuzzController::class . ':checkfollow');
+    $this-> get('/followuser/{userid}/{followid}',  \BuzzController::class . ':followuser');
+    $this-> get('/checkfollow/{userid}/{followid}',  \BuzzController::class . ':checkfollow');
 });
 
 
