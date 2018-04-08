@@ -99,8 +99,8 @@ public function update($request, $response, $args){
 
     $stmt = $this->db->query("UPDATE user SET email = ?,name =?, job = ?,youtube = ?,instagram= ?,facebook=?,twitter=?,phone=?,bio=?,follower=?,price=?  WHERE id = ? ")
     ->param([$email,$name,$job,$youtube,$instagram,$facebook,$twitter,$phone,$bio,$follower,$price ,$id ]);
- 
-    return $response->withJson( $stmt->send() );
+    $stmt->send();
+    return $response->withJson( $name );
 }
 
 
