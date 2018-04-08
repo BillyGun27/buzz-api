@@ -5,7 +5,7 @@ $target_path = "uploads/";
 $target_path = $target_path . basename( $_FILES['profile']['name']);
  
 if (move_uploaded_file($_FILES['profile']['tmp_name'], $target_path)) {
-   // echo $_FILES['profile']['name'];
+    echo $_FILES['profile']['name'];
     echo "Upload and move success";
 } else {
 echo $target_path;
