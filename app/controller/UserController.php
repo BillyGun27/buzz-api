@@ -107,9 +107,10 @@ public function update($request, $response, $args){
 public function register($request, $response, $args) {
         $data = $request->getParsedBody();
         $email = $data["email"];
+        $name = $data["name"];
         $password = password_hash($data["password"], PASSWORD_DEFAULT);
         $status = $data["status"];
-        $stmt = $this->db->query("INSERT INTO user (email, password, status ) VALUES (?,?,?)")->param([ $email ,$password,$status ]);
+        $stmt = $this->db->query("INSERT INTO user (email,name, password, status ) VALUES (?,?,?,?)")->param([ $email ,$name,$password,$status ]);
      
         if( $stmt->send()){
             return $response->withJson("succes");
