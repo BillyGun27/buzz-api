@@ -97,7 +97,8 @@ public function update($request, $response, $args){
     $follower = $data["follower"];
     $price = $data["price"];
 
-    $stmt = $this->db->query("UPDATE user SET job = ?,instagram= ?  WHERE id = ? ")->param([$job,$instagram ,$id ]);
+    $stmt = $this->db->query("UPDATE user SET email = ?,name =?, job = ?,youtube = ?,instagram= ?,facebook=?,twitter=?,phone=?,bio=?,follower=?,price?  WHERE id = ? ")
+    ->param([$email,$name,$job,$youtube,$instagram,$facebook,$twitter,$phone,$bio,$follower,$price ,$id ]);
  
     return $response->withJson( $stmt->send() );
 }
