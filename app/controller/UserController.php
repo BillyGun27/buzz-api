@@ -97,8 +97,8 @@ public function update($request, $response, $args){
     $follower = $data["follower"];
     $price = $data["price"];
 
-    $stmt = $this->db->query("UPDATE user SET email = ?,name =?, job = ?,youtube = ?,instagram= ?,facebook=?,twitter=?,phone=?,bio=?,follower=?,price=?  WHERE id = ? ")
-    ->param([$email,$name,$job,$youtube,$instagram,$facebook,$twitter,$phone,$bio,$follower,$price ,$id ]);
+    $stmt = $this->db->query("UPDATE user SET email = ?,mail =?,name =?, job = ?,youtube = ?,instagram= ?,facebook=?,twitter=?,phone=?,bio=?,follower=?,price=?  WHERE id = ? ")
+    ->param([$email,$email,$name,$job,$youtube,$instagram,$facebook,$twitter,$phone,$bio,$follower,$price ,$id ]);
     $stmt->send();
     return $response->withJson( $name );
 }
@@ -111,7 +111,7 @@ public function register($request, $response, $args) {
         $name = $data["name"];
         $password = password_hash($data["password"], PASSWORD_DEFAULT);
         $status = $data["status"];
-        $stmt = $this->db->query("INSERT INTO user (email,name, password, status ) VALUES (?,?,?,?)")->param([ $email ,$name,$password,$status ]);
+        $stmt = $this->db->query("INSERT INTO user (email,mail,name, password, status ) VALUES (?,?,?,?,?)")->param([ $email,$mail ,$name,$password,$status ]);
      
         if( $stmt->send()){
             return $response->withJson("succes");
