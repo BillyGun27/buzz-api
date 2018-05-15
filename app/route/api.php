@@ -13,7 +13,8 @@ use Slim\Http\Response;
 
 $app = new \Slim\App($container);
 
-$app->add(new \CorsSlim\CorsSlim());
+//$app->add(new \CorsSlim\CorsSlim());
+//$app->add(new Tuupola\Middleware\CorsMiddleware);
 
 $container = $app->getContainer();
 
