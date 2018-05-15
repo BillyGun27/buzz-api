@@ -24,7 +24,9 @@ class BuzzController extends BaseController
             //SELECT * ,IF(qna.follow.id = 2 , "true" , "false" ) AS checkmark FROM qna.user JOIN (SELECT * FROM qna.follow WHERE  qna.follow.user = 2 ) AS follow ON qna.user.id =  qna.follow.followed  WHERE qna.user.id != 2 ;
       //  }
            
-        return $response->withJson($stmt->view());
+        return $response->withHeader('Access-Control-Allow-Origin', '*')
+        ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+        ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')->withJson($stmt->view());
     }
 
     //count follower
@@ -42,7 +44,9 @@ class BuzzController extends BaseController
         $stmt = $this->db->query("SELECT * FROM buzz.follow JOIN buzz.user ON buzz.user.id = buzz.follow.following WHERE buzz.follow.user = ?; ")
         ->param( [ $args['id'] ]);
 
-        return $response->withJson($stmt->view());
+        return $response->withHeader('Access-Control-Allow-Origin', '*')
+        ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+        ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')->withJson($stmt->view());
 
     }
 
@@ -55,9 +59,13 @@ class BuzzController extends BaseController
         ->param([ $userid, $followid ]);
      
         if( $stmt->send()){
-            return $response->withJson("Followed");
+            return $response->withHeader('Access-Control-Allow-Origin', '*')
+            ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')->withJson("Followed");
         }else{
-            return $response->withJson("Connection Error");
+            return $response->withHeader('Access-Control-Allow-Origin', '*')
+            ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')->withJson("Connection Error");
         }
         
     }
@@ -74,7 +82,9 @@ class BuzzController extends BaseController
         }else{
             $result = true;
         }
-        return $response->withJson($result);
+        return $response->withHeader('Access-Control-Allow-Origin', '*')
+        ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+        ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')->withJson($result);
 
     }
 

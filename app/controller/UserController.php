@@ -47,9 +47,13 @@ public function login($request, $response, $args) {
                 );
 
 
-                return $response->withJson($fields); 
+                return $response->withHeader('Access-Control-Allow-Origin', '*')
+                ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+                ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')->withJson($fields); 
             }else{
-                return $response->withJson("User Not Found"); 
+                return $response->withHeader('Access-Control-Allow-Origin', '*')
+                ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+                ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')->withJson("User Not Found"); 
             }
    
 
@@ -100,7 +104,9 @@ public function update($request, $response, $args){
     $stmt = $this->db->query("UPDATE user SET email = ?,mail =?,name =?, job = ?,youtube = ?,instagram= ?,facebook=?,twitter=?,phone=?,bio=?,follower=?,price=?  WHERE id = ? ")
     ->param([$email,$email,$name,$job,$youtube,$instagram,$facebook,$twitter,$phone,$bio,$follower,$price ,$id ]);
     $stmt->send();
-    return $response->withJson( $name );
+    return $response->withHeader('Access-Control-Allow-Origin', '*')
+    ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+    ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')->withJson( $name );
 }
 
 
@@ -114,9 +120,13 @@ public function register($request, $response, $args) {
         $stmt = $this->db->query("INSERT INTO user (email,mail,name, password, status ) VALUES (?,?,?,?,?)")->param([ $email,$mail ,$name,$password,$status ]);
      
         if( $stmt->send()){
-            return $response->withJson("succes");
+            return $response->withHeader('Access-Control-Allow-Origin', '*')
+            ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')->withJson("succes");
         }else{
-            return $response->withJson("User Already Exist");
+            return $response->withHeader('Access-Control-Allow-Origin', '*')
+            ->withHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept, Origin, Authorization')
+            ->withHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS')->withJson("User Already Exist");
         }
         
     }
