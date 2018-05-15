@@ -1,7 +1,7 @@
 <?php
 use Slim\Http\Request;
 use Slim\Http\Response;
-
+use Tuupola\Middleware\CorsMiddleware;
 
 //use App\Controller\UserController;
 
@@ -17,6 +17,8 @@ $container = $app->getContainer();
 
 //Enable debugging (on by default)
 $app->config('debug', true);
+
+$app->add(new Tuupola\Middleware\CorsMiddleware);
 
 $app-> get('/', function($request, $response, $args){
     

@@ -11,14 +11,23 @@ class ComposerStaticInitc420c8bee37567ff68ed9f5cacfe9b49
     );
 
     public static $prefixLengthsPsr4 = array (
+        'T' => 
+        array (
+            'Tuupola\\Middleware\\' => 19,
+        ),
         'S' => 
         array (
             'Slim\\' => 5,
         ),
         'P' => 
         array (
+            'Psr\\Log\\' => 8,
             'Psr\\Http\\Message\\' => 17,
             'Psr\\Container\\' => 14,
+        ),
+        'N' => 
+        array (
+            'Neomerx\\Cors\\' => 13,
         ),
         'I' => 
         array (
@@ -36,9 +45,17 @@ class ComposerStaticInitc420c8bee37567ff68ed9f5cacfe9b49
     );
 
     public static $prefixDirsPsr4 = array (
+        'Tuupola\\Middleware\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/tuupola/cors-middleware/src',
+        ),
         'Slim\\' => 
         array (
             0 => __DIR__ . '/..' . '/slim/slim/Slim',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
         ),
         'Psr\\Http\\Message\\' => 
         array (
@@ -47,6 +64,10 @@ class ComposerStaticInitc420c8bee37567ff68ed9f5cacfe9b49
         'Psr\\Container\\' => 
         array (
             0 => __DIR__ . '/..' . '/psr/container/src',
+        ),
+        'Neomerx\\Cors\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/neomerx/cors-psr7/src',
         ),
         'Interop\\Container\\' => 
         array (
@@ -78,13 +99,9 @@ class ComposerStaticInitc420c8bee37567ff68ed9f5cacfe9b49
 
     public static $classMap = array (
         'App\\Controller\\BaseController' => __DIR__ . '/../..' . '/app/controller/BaseController.php',
-        'App\\Controller\\DonasiController' => __DIR__ . '/../..' . '/app/controller/DonasiController.php',
-        'App\\Controller\\FarmerController' => __DIR__ . '/../..' . '/app/controller/FarmerController.php',
-        'App\\Controller\\SensorController' => __DIR__ . '/../..' . '/app/controller/SensorController.php',
+        'App\\Controller\\BuzzController' => __DIR__ . '/../..' . '/app/controller/BuzzController.php',
         'App\\Controller\\UserController' => __DIR__ . '/../..' . '/app/controller/UserController.php',
         'App\\Database\\DB' => __DIR__ . '/../..' . '/app/database/DB.php',
-        'App\\Mqtt\\mMQTT' => __DIR__ . '/../..' . '/app/mqtt/mMQTT.php',
-        'App\\Mqtt\\phpMQTT' => __DIR__ . '/../..' . '/app/mqtt/phpMQTT.php',
         'FastRoute\\BadRouteException' => __DIR__ . '/..' . '/nikic/fast-route/src/BadRouteException.php',
         'FastRoute\\DataGenerator' => __DIR__ . '/..' . '/nikic/fast-route/src/DataGenerator.php',
         'FastRoute\\DataGenerator\\CharCountBased' => __DIR__ . '/..' . '/nikic/fast-route/src/DataGenerator/CharCountBased.php',
@@ -109,6 +126,23 @@ class ComposerStaticInitc420c8bee37567ff68ed9f5cacfe9b49
         'Interop\\Container\\ContainerInterface' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/ContainerInterface.php',
         'Interop\\Container\\Exception\\ContainerException' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/Exception/ContainerException.php',
         'Interop\\Container\\Exception\\NotFoundException' => __DIR__ . '/..' . '/container-interop/container-interop/src/Interop/Container/Exception/NotFoundException.php',
+        'Neomerx\\Cors\\AnalysisResult' => __DIR__ . '/..' . '/neomerx/cors-psr7/src/AnalysisResult.php',
+        'Neomerx\\Cors\\Analyzer' => __DIR__ . '/..' . '/neomerx/cors-psr7/src/Analyzer.php',
+        'Neomerx\\Cors\\Contracts\\AnalysisResultInterface' => __DIR__ . '/..' . '/neomerx/cors-psr7/src/Contracts/AnalysisResultInterface.php',
+        'Neomerx\\Cors\\Contracts\\AnalysisStrategyInterface' => __DIR__ . '/..' . '/neomerx/cors-psr7/src/Contracts/AnalysisStrategyInterface.php',
+        'Neomerx\\Cors\\Contracts\\AnalyzerInterface' => __DIR__ . '/..' . '/neomerx/cors-psr7/src/Contracts/AnalyzerInterface.php',
+        'Neomerx\\Cors\\Contracts\\Constants\\CorsRequestHeaders' => __DIR__ . '/..' . '/neomerx/cors-psr7/src/Contracts/Constants/CorsRequestHeaders.php',
+        'Neomerx\\Cors\\Contracts\\Constants\\CorsResponseHeaders' => __DIR__ . '/..' . '/neomerx/cors-psr7/src/Contracts/Constants/CorsResponseHeaders.php',
+        'Neomerx\\Cors\\Contracts\\Constants\\SimpleRequestHeaders' => __DIR__ . '/..' . '/neomerx/cors-psr7/src/Contracts/Constants/SimpleRequestHeaders.php',
+        'Neomerx\\Cors\\Contracts\\Constants\\SimpleRequestMethods' => __DIR__ . '/..' . '/neomerx/cors-psr7/src/Contracts/Constants/SimpleRequestMethods.php',
+        'Neomerx\\Cors\\Contracts\\Constants\\SimpleResponseHeaders' => __DIR__ . '/..' . '/neomerx/cors-psr7/src/Contracts/Constants/SimpleResponseHeaders.php',
+        'Neomerx\\Cors\\Contracts\\Factory\\FactoryInterface' => __DIR__ . '/..' . '/neomerx/cors-psr7/src/Contracts/Factory/FactoryInterface.php',
+        'Neomerx\\Cors\\Contracts\\Http\\ParsedUrlInterface' => __DIR__ . '/..' . '/neomerx/cors-psr7/src/Contracts/Http/ParsedUrlInterface.php',
+        'Neomerx\\Cors\\Contracts\\Strategies\\SettingsStrategyInterface' => __DIR__ . '/..' . '/neomerx/cors-psr7/src/Contracts/Strategies/SettingsStrategyInterface.php',
+        'Neomerx\\Cors\\Factory\\Factory' => __DIR__ . '/..' . '/neomerx/cors-psr7/src/Factory/Factory.php',
+        'Neomerx\\Cors\\Http\\ParsedUrl' => __DIR__ . '/..' . '/neomerx/cors-psr7/src/Http/ParsedUrl.php',
+        'Neomerx\\Cors\\Log\\LoggerAwareTrait' => __DIR__ . '/..' . '/neomerx/cors-psr7/src/Log/LoggerAwareTrait.php',
+        'Neomerx\\Cors\\Strategies\\Settings' => __DIR__ . '/..' . '/neomerx/cors-psr7/src/Strategies/Settings.php',
         'Pimple\\Container' => __DIR__ . '/..' . '/pimple/pimple/src/Pimple/Container.php',
         'Pimple\\Exception\\ExpectedInvokableException' => __DIR__ . '/..' . '/pimple/pimple/src/Pimple/Exception/ExpectedInvokableException.php',
         'Pimple\\Exception\\FrozenServiceException' => __DIR__ . '/..' . '/pimple/pimple/src/Pimple/Exception/FrozenServiceException.php',
@@ -137,6 +171,16 @@ class ComposerStaticInitc420c8bee37567ff68ed9f5cacfe9b49
         'Psr\\Http\\Message\\StreamInterface' => __DIR__ . '/..' . '/psr/http-message/src/StreamInterface.php',
         'Psr\\Http\\Message\\UploadedFileInterface' => __DIR__ . '/..' . '/psr/http-message/src/UploadedFileInterface.php',
         'Psr\\Http\\Message\\UriInterface' => __DIR__ . '/..' . '/psr/http-message/src/UriInterface.php',
+        'Psr\\Log\\AbstractLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/AbstractLogger.php',
+        'Psr\\Log\\InvalidArgumentException' => __DIR__ . '/..' . '/psr/log/Psr/Log/InvalidArgumentException.php',
+        'Psr\\Log\\LogLevel' => __DIR__ . '/..' . '/psr/log/Psr/Log/LogLevel.php',
+        'Psr\\Log\\LoggerAwareInterface' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerAwareInterface.php',
+        'Psr\\Log\\LoggerAwareTrait' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerAwareTrait.php',
+        'Psr\\Log\\LoggerInterface' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerInterface.php',
+        'Psr\\Log\\LoggerTrait' => __DIR__ . '/..' . '/psr/log/Psr/Log/LoggerTrait.php',
+        'Psr\\Log\\NullLogger' => __DIR__ . '/..' . '/psr/log/Psr/Log/NullLogger.php',
+        'Psr\\Log\\Test\\DummyTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php',
+        'Psr\\Log\\Test\\LoggerInterfaceTest' => __DIR__ . '/..' . '/psr/log/Psr/Log/Test/LoggerInterfaceTest.php',
         'Slim\\App' => __DIR__ . '/..' . '/slim/slim/Slim/App.php',
         'Slim\\CallableResolver' => __DIR__ . '/..' . '/slim/slim/Slim/CallableResolver.php',
         'Slim\\CallableResolverAwareTrait' => __DIR__ . '/..' . '/slim/slim/Slim/CallableResolverAwareTrait.php',
@@ -176,6 +220,7 @@ class ComposerStaticInitc420c8bee37567ff68ed9f5cacfe9b49
         'Slim\\Route' => __DIR__ . '/..' . '/slim/slim/Slim/Route.php',
         'Slim\\RouteGroup' => __DIR__ . '/..' . '/slim/slim/Slim/RouteGroup.php',
         'Slim\\Router' => __DIR__ . '/..' . '/slim/slim/Slim/Router.php',
+        'Tuupola\\Middleware\\Cors' => __DIR__ . '/..' . '/tuupola/cors-middleware/src/Cors.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
