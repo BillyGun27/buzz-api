@@ -10,6 +10,8 @@ return array(
     'App\\Controller\\BuzzController' => $baseDir . '/app/controller/BuzzController.php',
     'App\\Controller\\UserController' => $baseDir . '/app/controller/UserController.php',
     'App\\Database\\DB' => $baseDir . '/app/database/DB.php',
+    'CorsSlim\\CorsSlim' => $vendorDir . '/palanik/corsslim/CorsSlim.php',
+    'CorsSlim\\Tests\\CorsSlimTest' => $vendorDir . '/palanik/corsslim/tests/CorsTest.php',
     'FastRoute\\BadRouteException' => $vendorDir . '/nikic/fast-route/src/BadRouteException.php',
     'FastRoute\\DataGenerator' => $vendorDir . '/nikic/fast-route/src/DataGenerator.php',
     'FastRoute\\DataGenerator\\CharCountBased' => $vendorDir . '/nikic/fast-route/src/DataGenerator/CharCountBased.php',

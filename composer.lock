@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "be3cebc07da12e6d5b6a23e33e92139a",
+    "content-hash": "bee5e39bccb35be0349f8c9ce2241254",
     "packages": [
         {
             "name": "container-interop/container-interop",
@@ -180,6 +180,50 @@
                 "routing"
             ],
             "time": "2015-06-18T19:15:47+00:00"
+        },
+        {
+            "name": "palanik/corsslim",
+            "version": "v1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/palanik/CorsSlim.git",
+                "reference": "0f06ff5a9709ee1c831a25cda3028008d86a48eb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/palanik/CorsSlim/zipball/0f06ff5a9709ee1c831a25cda3028008d86a48eb",
+                "reference": "0f06ff5a9709ee1c831a25cda3028008d86a48eb",
+                "shasum": ""
+            },
+            "require": {
+                "slim/slim": ">=2.4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "CorsSlim\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "palanik"
+                }
+            ],
+            "description": "Cross-origin resource sharing (CORS) middleware for PHP Slim.",
+            "homepage": "https://github.com/palanik/CorsSlim",
+            "keywords": [
+                "cors",
+                "corsslim",
+                "cross-origin",
+                "preflight",
+                "slim",
+                "slimphp"
+            ],
+            "time": "2015-11-19T05:44:29+00:00"
         },
         {
             "name": "pimple/pimple",

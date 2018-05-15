@@ -13,7 +13,11 @@ use Slim\Http\Response;
 
 $app = new \Slim\App($container);
 
+$app->add(new \CorsSlim\CorsSlim());
+
 $container = $app->getContainer();
+
+
 
 //Enable debugging (on by default)
 $app->config('debug', true);

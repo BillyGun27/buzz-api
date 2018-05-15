@@ -38,6 +38,10 @@ class ComposerStaticInitc420c8bee37567ff68ed9f5cacfe9b49
             'Firebase\\JWT\\' => 13,
             'FastRoute\\' => 10,
         ),
+        'C' => 
+        array (
+            'CorsSlim\\' => 9,
+        ),
         'A' => 
         array (
             'App\\' => 4,
@@ -81,6 +85,10 @@ class ComposerStaticInitc420c8bee37567ff68ed9f5cacfe9b49
         array (
             0 => __DIR__ . '/..' . '/nikic/fast-route/src',
         ),
+        'CorsSlim\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/palanik/corsslim',
+        ),
         'App\\' => 
         array (
             0 => __DIR__ . '/../..' . '/app',
@@ -102,6 +110,8 @@ class ComposerStaticInitc420c8bee37567ff68ed9f5cacfe9b49
         'App\\Controller\\BuzzController' => __DIR__ . '/../..' . '/app/controller/BuzzController.php',
         'App\\Controller\\UserController' => __DIR__ . '/../..' . '/app/controller/UserController.php',
         'App\\Database\\DB' => __DIR__ . '/../..' . '/app/database/DB.php',
+        'CorsSlim\\CorsSlim' => __DIR__ . '/..' . '/palanik/corsslim/CorsSlim.php',
+        'CorsSlim\\Tests\\CorsSlimTest' => __DIR__ . '/..' . '/palanik/corsslim/tests/CorsTest.php',
         'FastRoute\\BadRouteException' => __DIR__ . '/..' . '/nikic/fast-route/src/BadRouteException.php',
         'FastRoute\\DataGenerator' => __DIR__ . '/..' . '/nikic/fast-route/src/DataGenerator.php',
         'FastRoute\\DataGenerator\\CharCountBased' => __DIR__ . '/..' . '/nikic/fast-route/src/DataGenerator/CharCountBased.php',
